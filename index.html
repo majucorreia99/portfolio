@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maju Correia — Animação &amp; Entretenimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Caveat:wght@600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-bg: #fbe8f2;
+    --pink-bg-soft: #fdf3f8;
+    --purple: #7c3aed;
+    --purple-deep: #5b21b6;
+    --teal: #14b8a6;
+    --orange: #f5a524;
+    --pink-hot: #ec4899;
+    --gold: #eab308;
+    --ink: #2d1b3d;
+    --ink-soft: #6b5a7a;
+    --white: #ffffff;
+    --card-line: #f0d9e8;
+    --xmas-red: #c81e33;
+    --xmas-green: #1c7a45;
+    --kid-teal: #20c4c0;
+    --kid-orange: #f5841f;
+    --kid-pink: #ef5da8;
+    --kid-yellow: #ffc82e;
+    --mk-pink: #ff4fc1;
+    --mk-lime: #c7f13f;
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+  }
+  :root:not([data-theme="light"]){
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --pink-bg: #241522;
+      --pink-bg-soft: #1b1220;
+      --white: #2a1a2c;
+      --ink: #f6ecf5;
+      --ink-soft: #cbb8d1;
+      --card-line: #3c2740;
+    }
+  }
+  :root[data-theme="dark"]{
+    --pink-bg: #241522;
+    --pink-bg-soft: #1b1220;
+    --white: #2a1a2c;
+    --ink: #f6ecf5;
+    --ink-soft: #cbb8d1;
+    --card-line: #3c2740;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Nunito Sans', system-ui, sans-serif;
+    background:var(--pink-bg-soft);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px max(28px, calc((100vw - 1180px)/2 + 28px));
+    background:var(--white);
+    border-bottom:2px dashed #f0b8d6;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+  }
+  .brand{
+    display:flex;align-items:center;gap:8px;
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-size:1.6rem;font-weight:600;color:var(--purple-deep);
+  }
+  .brand .spark{font-size:1.1rem;}
+  .nav-links{display:flex;gap:14px;font-weight:700;font-size:1.02rem;}
+  .nav-links a{
+    text-decoration:none;color:var(--ink);
+    padding:8px 20px;border-radius:999px;
+    border:1.5px solid var(--card-line);
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  .nav-links a:hover{background:var(--pink-bg);border-color:var(--purple);color:var(--purple-deep);}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--white);border:1px solid var(--card-line);
+    color:var(--pink-hot);
+    text-decoration:none;
+  }
+  .lang-switch{
+    display:flex;background:var(--white);border-radius:999px;padding:4px;
+    border:1px solid var(--card-line);gap:2px;
+  }
+  .lang-switch button{
+    border:none;background:transparent;padding:6px 13px;border-radius:999px;
+    font-weight:700;font-size:.85rem;color:var(--ink-soft);
+  }
+  .lang-switch button.active{background:var(--purple);color:#fff;}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg, #f7d6e8 0%, #fbe4f0 100%);
+    border-radius:var(--radius-lg);
+    margin-top:16px;
+    padding:32px 44px 34px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:32px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .hero h1{
+    font-family:'Caveat', cursive;
+    font-size:3.6rem;
+    background:linear-gradient(100deg, #0d9488, #2563eb);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    font-weight:700;line-height:1;
+    margin-bottom:14px;
+  }
+  .hero p{
+    font-size:1.05rem;line-height:1.55;color:#1a1a1a;
+    max-width:46ch;
+  }
+  .hero-photo-frame{
+    position:relative;
+    justify-self:end;
+    width:100%;max-width:280px;
+    z-index:2;
+  }
+  .hero-photo-frame img{
+    width:100%;height:100%;object-fit:cover;aspect-ratio:700/860;
+    -webkit-mask-image:linear-gradient(to bottom, black 88%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 88%, transparent 100%);
+  }
+  .hero-photo-frame .doodle{z-index:3;}
+
+  .doodle{position:absolute;z-index:1;opacity:.9;}
+  .doodle svg{display:block;}
+
+  /* PROJETOS */
+  .projetos{padding:64px 0 40px;}
+  .projetos h2{
+    font-size:2rem;color:var(--purple-deep);
+    display:flex;align-items:center;gap:10px;margin-bottom:26px;
+  }
+  .filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
+  .pill{
+    border:1.5px solid var(--purple);
+    background:var(--white);color:var(--purple);
+    padding:9px 20px;border-radius:999px;font-weight:700;font-size:.95rem;
+    transition:background .15s, color .15s;
+  }
+  .pill.active{background:var(--purple);color:#fff;}
+  .pill:not(.active):hover{background:#f3e8ff;}
+  .pill[data-filter="hotel"]{border-color:#0ea5e9;color:#0284c7;}
+  .pill[data-filter="hotel"].active{background:#0ea5e9;color:#fff;}
+  .pill[data-filter="hotel"]:not(.active):hover{background:#e0f2fe;}
+  .pill[data-filter="christmas"]{border-color:#e11d48;color:#e11d48;}
+  .pill[data-filter="christmas"].active{background:#e11d48;color:#fff;}
+  .pill[data-filter="christmas"]:not(.active):hover{background:#ffe4e6;}
+  .pill[data-filter="infantil"]{border-color:#f59e0b;color:#b45309;}
+  .pill[data-filter="infantil"].active{background:#f59e0b;color:#fff;}
+  .pill[data-filter="infantil"]:not(.active):hover{background:#fef3c7;}
+  .pill[data-filter="maquilhagem"]{border-color:#c7f13f;color:#5e7a11;}
+  .pill[data-filter="maquilhagem"].active{background:#c7f13f;color:#3a4a12;}
+  .pill[data-filter="maquilhagem"]:not(.active):hover{background:#f2fdd6;}
+
+  .featured{
+    background:var(--white);
+    border:2px solid var(--gold);
+    border-radius:var(--radius-lg);
+    overflow:hidden;margin-bottom:26px;
+    box-shadow:0 18px 34px -20px rgba(45,27,61,.25);
+  }
+  .featured-media{
+    position:relative;aspect-ratio:16/6.2;
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .featured-media img{width:100%;height:100%;object-fit:cover;}
+  .featured-media .caption{
+    color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:10px;
+  }
+  .badge{
+    position:absolute;top:16px;left:0;
+    background:var(--gold);color:#3a2a00;
+    font-weight:800;font-size:.8rem;
+    padding:6px 18px 6px 14px;border-radius:0 999px 999px 0;
+  }
+  .play-btn{
+    position:absolute;top:16px;right:16px;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.92);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+    border:2px solid var(--gold);
+  }
+  .featured-body{
+    padding:22px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    flex-wrap:wrap;
+  }
+  .featured-body h3{font-size:1.5rem;color:var(--purple-deep);margin-bottom:6px;}
+  .featured-body p{margin:0;color:var(--ink-soft);font-size:.98rem;}
+  .btn-primary{
+    background:var(--pink-hot);color:#fff;border:none;
+    padding:13px 26px;border-radius:14px;font-weight:800;font-size:.98rem;
+    white-space:nowrap;
+    box-shadow:0 10px 20px -8px rgba(236,72,153,.55);
+  }
+  .btn-primary:hover{filter:brightness(1.05);}
+
+  .card-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .card{
+    background:var(--white);border:3px solid var(--card-line);
+    border-radius:var(--radius-md);overflow:hidden;
+  }
+  .card[data-cat="christmas"]{border-color:#c81e33;}
+  .card[data-cat="infantil"]{border-color:#f5841f;}
+  .card[data-cat="maquilhagem"]{border-color:#c7f13f;}
+  
+  .card-media{
+    aspect-ratio:4/3;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.6rem;
+    background:linear-gradient(135deg,#f3e0ee,#e5d3f0);
+    overflow:hidden;position:relative;
+  }
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card[data-cat="christmas"] .card-media{background:linear-gradient(135deg,#fb7185,#e11d48);}
+  .card[data-cat="infantil"] .card-media{background:linear-gradient(135deg,#fbbf24,#f59e0b);}
+  .card[data-cat="maquilhagem"] .card-media{background:linear-gradient(135deg,#a78bfa,#7c3aed);}
+  .card-body{
+    padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .card-body h4{font-family:'Fraunces';font-size:1.05rem;color:var(--ink);margin:0;font-weight:600;}
+  .soon{
+    font-size:.72rem;font-weight:800;color:#fff;
+    background:var(--purple);padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .card[data-cat="christmas"] .soon{background:#e11d48;}
+  .card[data-cat="infantil"] .soon{background:#f5841f;}
+  .card[data-cat="maquilhagem"] .soon{background:#c7f13f;color:#2f3d0c;}
+  .card[hidden]{display:none;}
+  a.card{display:block;text-decoration:none;}
+
+  /* CHRISTMAS VILLAGE — DETALHE DO PROJETO */
+  .cv-page-wrap{padding-top:26px;}
+  .back-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:800;color:var(--purple-deep);text-decoration:none;
+    margin-bottom:18px;
+    background:none;border:none;cursor:pointer;font-family:inherit;font-size:1rem;
+    padding:6px 2px;
+  }
+  .back-link:hover{text-decoration:underline;}
+  .cv-detail{padding:6px 0 10px;}
+  .cv-cover{
+    border-radius:var(--radius-lg);overflow:hidden;margin-bottom:22px;
+    border:5px solid var(--xmas-green);
+    box-shadow:0 16px 30px -18px rgba(45,27,61,.4);
+  }
+  .cv-cover img{
+    width:100%;aspect-ratio:16/9;object-fit:cover;display:block;
+  }
+  .cv-banner{
+    background:linear-gradient(135deg,#dc2626,#15803d);
+    border-radius:var(--radius-lg);
+    padding:38px 36px;
+    color:#fff;
+    margin-bottom:28px;
+    text-align:center;
+  }
+  .cv-banner-photo{
+    width:200px;max-width:60%;margin:0 auto 22px;
+    border-radius:20px;overflow:hidden;
+    border:5px solid rgba(255,255,255,.9);
+    box-shadow:0 18px 30px -14px rgba(0,0,0,.5);
+  }
+  .cv-banner-photo img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
+  }
+  .cv-banner h2{color:#fff;font-size:1.9rem;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .cv-feature-list{
+    list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+    text-align:left;
+  }
+  .cv-feature-list li{
+    background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.4);
+    border-radius:14px;padding:13px 16px;font-weight:700;font-size:.96rem;
+    display:flex;align-items:center;gap:10px;
+  }
+  .cv-gallery{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .cv-gallery img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;
+    box-shadow:0 12px 22px -12px rgba(45,27,61,.35);
+    border:4px solid var(--xmas-red);
+  }
+  .cv-gallery img:nth-child(even){border-color:var(--xmas-green);}
+
+  .cv-video-wrap{
+    margin-top:36px;text-align:center;
+  }
+  .cv-video-wrap h3{
+    font-family:'Fraunces',serif;color:var(--purple-deep);font-size:1.3rem;margin-bottom:18px;
+  }
+  .cv-videos{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:20px;
+  }
+  .cv-video-card{
+    background:var(--white);padding:9px;border-radius:24px;
+    border:4px solid var(--xmas-red);
+    box-shadow:0 18px 30px -16px rgba(45,27,61,.4);
+    line-height:0;
+  }
+  .cv-video-card + .cv-video-card{border-color:var(--xmas-green);}
+  .cv-videos video{
+    height:340px;width:auto;max-width:100%;
+    border-radius:15px;display:block;background:#101720;
+  }
+
+  /* enfeites de natal da página */
+  .cv-page-wrap{position:relative;}
+  .cv-ornaments{
+    position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;
+  }
+  .cv-ornaments span{
+    position:absolute;font-size:1.5rem;opacity:.18;
+  }
+  #cv-page > *:not(.cv-ornaments){position:relative;z-index:1;}
+  .cv-garland{
+    display:flex;justify-content:center;gap:14px;
+    font-size:1.25rem;margin:30px 0 4px;opacity:.75;
+  }
+
+  @media (max-width:820px){
+    .cv-feature-list{grid-template-columns:1fr;}
+    .cv-gallery{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .cv-videos video{height:auto;width:100%;}
+    .cv-video-card{width:100%;}
+  }
+
+  /* ===== Página Animação Infantil ===== */
+  .ai-page-wrap{position:relative;padding-top:22px;}
+  .ai-cover{
+    border-radius:var(--radius-lg);overflow:hidden;margin-bottom:22px;
+    border:5px solid var(--kid-teal);
+    box-shadow:0 16px 30px -18px rgba(45,27,61,.4);
+  }
+  .ai-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+
+  .ai-banner{
+    background:linear-gradient(135deg,var(--kid-teal),var(--kid-orange));
+    border-radius:var(--radius-lg);
+    padding:38px 36px;color:#fff;margin-bottom:28px;text-align:center;
+  }
+  .ai-banner h2{
+    color:#fff;font-size:1.9rem;margin-bottom:18px;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .ai-banner-photo{
+    width:200px;max-width:60%;margin:0 auto 22px;
+    border-radius:20px;overflow:hidden;
+    border:5px solid rgba(255,255,255,.9);
+    box-shadow:0 18px 30px -14px rgba(0,0,0,.5);
+  }
+  .ai-banner-photo img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
+  }
+  .ai-feature-list{
+    list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;
+  }
+  .ai-feature-list li{
+    background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.4);
+    border-radius:14px;padding:13px 16px;font-weight:700;font-size:.96rem;
+    display:flex;align-items:center;gap:10px;
+  }
+
+  .ai-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .ai-gallery img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px;
+    border:4px solid var(--kid-teal);
+    box-shadow:0 12px 22px -12px rgba(45,27,61,.35);
+  }
+  .ai-gallery img:nth-child(4n+2){border-color:var(--kid-orange);}
+  .ai-gallery img:nth-child(4n+3){border-color:var(--kid-pink);}
+  .ai-gallery img:nth-child(4n+4){border-color:var(--kid-yellow);}
+
+  .ai-video-wrap{margin-top:36px;text-align:center;}
+  .ai-video-wrap h3{
+    font-family:'Fraunces',serif;color:var(--purple-deep);font-size:1.3rem;margin-bottom:18px;
+  }
+  .ai-videos{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:20px;
+  }
+  .ai-video-card{
+    background:var(--white);padding:9px;border-radius:24px;
+    border:4px solid var(--kid-teal);
+    box-shadow:0 18px 30px -16px rgba(45,27,61,.4);line-height:0;
+  }
+  .ai-video-card:nth-child(2){border-color:var(--kid-orange);}
+  .ai-video-card:nth-child(3){border-color:var(--kid-pink);}
+  .ai-videos video{
+    height:300px;width:auto;max-width:100%;
+    border-radius:15px;display:block;background:#101720;
+  }
+
+  /* enfeites da página */
+  .ai-ornaments{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+  .ai-ornaments span{position:absolute;font-size:1.5rem;opacity:.18;}
+  #ai-page > *:not(.ai-ornaments){position:relative;z-index:1;}
+  .ai-garland{
+    display:flex;justify-content:center;gap:14px;
+    font-size:1.25rem;margin:30px 0 4px;opacity:.75;
+  }
+
+  @media (max-width:820px){
+    .ai-feature-list{grid-template-columns:1fr;}
+    .ai-gallery{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .ai-videos video{height:auto;width:100%;}
+    .ai-video-card{width:100%;}
+  }
+
+  /* ===== Página Maquilhagem Artística ===== */
+  .mk-page-wrap{position:relative;padding-top:22px;}
+  .mk-cover{
+    position:relative;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:22px;
+    border:5px solid var(--mk-pink);
+    box-shadow:0 16px 30px -18px rgba(45,27,61,.4);
+  }
+  .mk-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+
+  .mk-intro{
+    background:var(--white);border:2px dashed var(--mk-pink);
+    border-radius:var(--radius-lg);padding:30px 30px 26px;margin-bottom:28px;text-align:center;
+  }
+  .mk-intro h2{
+    font-family:'Fraunces',serif;color:var(--mk-pink);
+    font-size:clamp(1.5rem,4vw,2.1rem);margin:0 0 10px;line-height:1.2;
+  }
+  .mk-intro p{
+    margin:0 auto;max-width:520px;color:var(--ink);font-size:1.02rem;line-height:1.6;
+  }
+  .mk-canva{margin-top:20px;}
+  .mk-canva a{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--mk-lime);color:#3a1030;font-weight:800;
+    padding:12px 22px;border-radius:999px;text-decoration:none;font-size:.95rem;
+    border:2px solid #b2dd2c;
+  }
+  .mk-canva a:hover{background:#d7f76d;}
+
+  /* bloco bio, com as fotos como na página 3 do portfólio */
+  .mk-bio{
+    background:var(--mk-pink);border-radius:var(--radius-lg);
+    padding:30px;margin-bottom:28px;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center;
+  }
+  .mk-bio-text{
+    background:var(--mk-lime);color:#8a1d63;border-radius:16px;
+    padding:22px 24px;font-size:1rem;line-height:1.65;
+  }
+  .mk-bio-text p{margin:0 0 12px;}
+  .mk-bio-text p:last-child{margin:0;}
+  .mk-bio-pics{
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;
+    border-radius:16px;overflow:hidden;
+  }
+  .mk-bio-pics img{
+    width:100%;height:100%;display:block;object-fit:cover;border:0;
+  }
+  .mk-bio-pics .p-tall{grid-column:2;grid-row:1 / span 2;}
+
+  .mk-h{
+    font-family:'Fraunces',serif;color:var(--purple-deep);
+    font-size:1.5rem;text-align:center;margin:0 0 6px;
+  }
+  .mk-sub{
+    text-align:center;color:var(--ink-soft);margin:0 0 18px;font-size:.98rem;
+  }
+
+  .mk-fests{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:12px;
+    max-width:660px;margin-left:auto;margin-right:auto;
+  }
+  .mk-fest{
+    background:var(--white);border:3px solid var(--mk-pink);border-radius:16px;
+    padding:9px 9px 12px;text-align:center;
+  }
+  .mk-fest:nth-child(even){border-color:var(--mk-lime);}
+  .mk-fest-slot{
+    width:100%;aspect-ratio:9/16;border-radius:11px;
+    background:repeating-linear-gradient(135deg,#fdf1fa,#fdf1fa 10px,#f8e4f4 10px,#f8e4f4 20px);
+    display:flex;align-items:center;justify-content:center;
+    color:#c471a8;font-size:1.6rem;
+  }
+  .mk-fest video{
+    width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:11px;display:block;background:#101720;min-width:0;min-height:0;
+  }
+  .mk-fest b{
+    display:block;margin-top:9px;font-size:.82rem;color:var(--mk-pink);font-weight:800;
+  }
+  .mk-note{
+    text-align:center;color:var(--ink-soft);font-size:.88rem;margin:0 0 30px;
+  }
+
+  .mk-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;}
+  .mk-gallery img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:14px;
+    border:4px solid var(--mk-pink);
+    box-shadow:0 12px 22px -12px rgba(45,27,61,.35);
+  }
+  .mk-gallery img:nth-child(even){border-color:var(--mk-lime);}
+
+  .mk-ornaments{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+  .mk-ornaments span{position:absolute;font-size:1.4rem;opacity:.16;}
+  #mk-page > *:not(.mk-ornaments){position:relative;z-index:1;}
+  .mk-garland{
+    display:flex;justify-content:center;gap:14px;
+    font-size:1.2rem;margin:30px 0 4px;opacity:.75;
+  }
+
+  @media (max-width:820px){
+    .mk-bio{grid-template-columns:1fr;}
+    .mk-intro,.mk-bio{padding:24px 20px;}
+  }
+  @media (max-width:560px){
+    .mk-fests{grid-template-columns:repeat(2,1fr);}
+    .mk-gallery{grid-template-columns:repeat(2,1fr);}
+  }
+
+  footer{
+    text-align:center;padding:50px 20px 40px;color:var(--ink-soft);font-size:.92rem;
+  }
+  footer .domain{font-weight:800;color:var(--purple-deep);}
+
+  /* SOBRE MIM */
+  .sobre{padding:70px 0 30px;}
+  .sobre h2{
+    font-size:2rem;color:var(--purple-deep);
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .sobre p{
+    font-size:1.12rem;line-height:1.8;color:#1a1a1a;
+    max-width:68ch;margin:0 0 18px;
+  }
+  .sobre-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;
+  }
+  .sobre-pics{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  }
+  .sobre-pics figure{margin:0;}
+  .sobre-pics img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
+    background:var(--white);
+    border:7px solid var(--white);border-radius:6px;
+    box-shadow:0 14px 26px -14px rgba(45,27,61,.45);
+  }
+  .sobre-pics figure:nth-child(1){transform:rotate(-3deg);}
+  .sobre-pics figure:nth-child(2){transform:rotate(2.2deg) translateY(16px);}
+  .sobre-pics figure:nth-child(3){transform:rotate(2.6deg) translateY(-10px);}
+  .sobre-pics figure:nth-child(4){transform:rotate(-2deg) translateY(6px);}
+
+  .obrigada-pics{
+    display:flex;justify-content:center;align-items:center;
+    margin:0 0 26px;
+  }
+  .obrigada-pics img{
+    width:128px;height:128px;object-fit:cover;
+    border:6px solid var(--white);border-radius:50%;
+    box-shadow:0 12px 22px -12px rgba(45,27,61,.45);
+    background:var(--white);
+  }
+  .obrigada-pics img:nth-child(1){transform:rotate(-5deg);}
+  .obrigada-pics img:nth-child(2){margin:0 -16px;width:150px;height:150px;position:relative;z-index:2;}
+  .obrigada-pics img:nth-child(3){transform:rotate(5deg);}
+
+  @media (max-width:820px){
+    .sobre-grid{grid-template-columns:1fr;gap:28px;}
+    .sobre-pics figure{transform:none !important;}
+    .obrigada-pics img{width:96px;height:96px;}
+    .obrigada-pics img:nth-child(2){width:112px;height:112px;}
+  }
+
+  /* OBRIGADA / CONTACTO */
+  .obrigada{
+    position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#fbe4f0 0%,#f7d6e8 60%,#f2c8de 100%);
+    border:4px solid var(--white);
+    border-radius:var(--radius-lg);
+    margin:30px 0 40px;
+    padding:48px 40px 44px;
+    text-align:center;
+    color:var(--ink);
+    box-shadow:0 18px 34px -22px rgba(45,27,61,.3);
+  }
+  .obrigada .doodle{position:absolute;z-index:0;line-height:0;}
+  .obrigada .confetti-dot{
+    position:absolute;border-radius:50%;z-index:0;
+  }
+  .obrigada h2, .obrigada p, .obrigada .contact-info, .obrigada .obrigada-pics{
+    position:relative;z-index:1;
+  }
+  .obrigada h2{
+    font-family:'Caveat',cursive;color:var(--purple-deep);
+    font-size:2.9rem;margin-bottom:10px;line-height:1.1;
+  }
+  .obrigada p{
+    font-size:1.06rem;line-height:1.75;max-width:58ch;margin:0 auto 28px;color:var(--ink);
+  }
+  .contact-info{
+    display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
+  }
+  .contact-info a{
+    display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;font-weight:800;font-size:.98rem;color:#fff;
+    padding:13px 26px;border-radius:999px;
+    border:3px solid var(--white);
+    box-shadow:0 10px 20px -10px rgba(45,27,61,.4);
+    transition:transform .15s;
+  }
+  .contact-info a:hover{transform:translateY(-2px) rotate(-1.5deg);}
+  .contact-info a.phone{background:#38bdf8;}
+  .contact-info a.email{background:#ec4899;}
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-frame{justify-self:center;max-width:260px;order:-1;}
+    .hero h1{font-size:3rem;text-align:center;}
+    .hero p{margin:0 auto;text-align:center;}
+    .nav{padding:14px 20px;}
+    .nav-links{display:none;}
+    .card-grid{grid-template-columns:1fr;}
+    .hero{padding:40px 22px 48px;}
+    .obrigada{padding:40px 22px;}
+  }
+
+  /* ANIMAÇÃO EM HOTEL — DETALHE DO PROJETO */
+  .hotel-page-wrap{position:relative;padding-top:26px;padding-bottom:40px;}
+  #hotel-page{--ht-sun:#ffb627;--ht-coral:#ff6f59;--ht-sea:#0ea5c6;--ht-lagoon:#14b8a6;--ht-night:#3b1d6e;--ht-night2:#1e2a5a;}
+  .ht-slot{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    width:100%;aspect-ratio:4/3;border-radius:16px;
+    border:2.5px dashed currentColor;opacity:.85;
+    font-weight:700;font-size:.9rem;text-align:center;padding:10px;
+    background:rgba(255,255,255,.12);
+  }
+  .ht-slot small{font-weight:600;opacity:.8;font-size:.78rem;}
+  .ht-cover{margin-bottom:22px;color:var(--ht-sea);}
+  .ht-cover .ht-slot{aspect-ratio:16/9;border-radius:var(--radius-lg);border-width:4px;background:var(--white);font-size:1.1rem;}
+
+  .ht-banner{
+    background:linear-gradient(135deg,var(--ht-sea),var(--ht-lagoon));
+    border-radius:var(--radius-lg);padding:38px 36px;color:#fff;margin-bottom:34px;text-align:center;
+  }
+  .ht-banner h2{color:#fff;font-size:1.9rem;margin-bottom:14px;}
+  .ht-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:16px;}
+  .ht-chips span{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.45);
+    border-radius:999px;padding:7px 16px;font-weight:800;font-size:.95rem;}
+  .ht-banner p{max-width:560px;margin:0 auto;font-size:1.05rem;line-height:1.55;}
+
+  .ht-period{border-radius:var(--radius-lg);padding:30px 30px 34px;margin-bottom:26px;color:#fff;}
+  .ht-period h3{font-size:1.6rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;color:#fff;}
+  .ht-period > p{margin:0 0 22px;opacity:.92;}
+  .ht-morning{background:linear-gradient(135deg,var(--ht-sun),var(--ht-coral));}
+  .ht-afternoon{background:linear-gradient(135deg,var(--ht-lagoon),var(--ht-sea));}
+  .ht-night{background:linear-gradient(135deg,var(--ht-night),var(--ht-night2));}
+
+  .ht-acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+  .ht-act{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);
+    border-radius:20px;padding:12px 12px 16px;}
+  .ht-act h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:12px 4px 4px;}
+  .ht-act p{margin:0 4px;font-size:.93rem;line-height:1.45;opacity:.95;}
+  .ht-freq{display:inline-block;margin:0 4px 2px;font-size:.78rem;font-weight:800;
+    background:#fff;color:var(--ink);border-radius:999px;padding:3px 10px;}
+
+  .ht-shows{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .ht-show{background:rgba(255,255,255,.1);border:2px solid var(--ht-sun);border-radius:20px;padding:12px 12px 16px;}
+  .ht-show:nth-child(2){border-color:var(--pink-hot);}
+  .ht-show:nth-child(3){border-color:var(--ht-lagoon);}
+  .ht-show:nth-child(4){border-color:var(--ht-coral);}
+  .ht-show .ht-slot{aspect-ratio:3/4;}
+  .ht-day{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--ht-sun);margin:10px 4px 0;line-height:1;}
+  .ht-show h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:2px 4px 2px;}
+  .ht-show p{margin:0 4px;font-size:.88rem;opacity:.85;}
+  .ht-night-extra{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+  .ht-note{background:rgba(255,255,255,.12);border-radius:18px;padding:16px 18px;font-size:.98rem;line-height:1.5;}
+  .ht-note strong{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.1rem;margin-bottom:2px;}
+
+  .ht-video-wrap{margin-top:36px;text-align:center;color:var(--ht-sea);}
+  .ht-video-wrap h3{color:var(--purple-deep);font-size:1.3rem;margin-bottom:18px;}
+  .ht-videos{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+  .ht-videos .ht-slot{width:180px;aspect-ratio:9/16;background:var(--white);}
+
+
+  .ht-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:22px;margin-bottom:34px;align-items:stretch;}
+  .ht-hero .ht-banner{margin:0;display:flex;flex-direction:column;justify-content:center;}
+  .ht-cover-img{border-radius:var(--radius-lg);overflow:hidden;border:5px solid var(--ht-sea);
+    box-shadow:0 16px 30px -18px rgba(45,27,61,.4);}
+  .ht-cover-img img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;}
+  .ht-media{border-radius:16px;overflow:hidden;background:rgba(0,0,0,.15);line-height:0;}
+  .ht-media img,.ht-media video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
+  .ht-media video{background:#101720;}
+  .ht-media.two{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:none;}
+  .ht-media.two img{border-radius:12px;aspect-ratio:3/4;}
+  @media (max-width:760px){.ht-hero{grid-template-columns:1fr;}}
+
+  @media (max-width:900px){.ht-shows{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){
+    .ht-period,.ht-banner{padding:26px 18px;}
+    .ht-night-extra{grid-template-columns:1fr;}
+  }
+  .ht-media.two video{border-radius:12px;aspect-ratio:3/4;}
+  .ht-media.four{grid-template-columns:1fr 1fr;}
+  .ht-show .ht-media video{aspect-ratio:3/4;}
+  .ht-videos video{width:180px;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#101720;display:block;}
+  .ht-note-media{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+  .ht-note-media video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#101720;display:block;}
+
+  /* --- capa em cima, cartão em baixo --- */
+  .ht-hero{display:block;margin-bottom:30px;}
+  .ht-cover-img{margin-bottom:18px;}
+  .ht-cover-img img{aspect-ratio:16/9;object-position:center;}
+  .ht-hero .ht-banner{margin:0;}
+  .ht-banner-photo{width:110px;height:110px;border-radius:50%;object-fit:cover;
+    margin:0 auto 14px;border:4px solid rgba(255,255,255,.65);
+    box-shadow:0 10px 22px -12px rgba(0,0,0,.5);}
+
+  /* --- manhã e tarde mais arrumadas --- */
+  .ht-acts{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;}
+  .ht-act{display:flex;flex-direction:column;padding:14px 14px 18px;
+    box-shadow:0 12px 24px -20px rgba(0,0,0,.6);}
+  .ht-act h4{margin:14px 2px 6px;}
+  .ht-act p{margin:0 2px;}
+  .ht-act .ht-freq{align-self:flex-start;margin:0 0 8px 2px;}
+  .ht-media.two,.ht-media.four{gap:8px;}
+  .ht-media.three>*:nth-child(3){grid-column:1/-1;justify-self:center;width:calc(50% - 4px);}
+  @media (max-width:980px){.ht-acts{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:620px){
+    .ht-acts,.ht-afternoon .ht-acts{grid-template-columns:1fr;}
+    .ht-cover-img img{aspect-ratio:4/3;}
+    .ht-banner-photo{width:92px;height:92px;}
+  }
+
+  /* Avatar section - two squares side by side */
+  .ht-banner-photo-single{width:280px;height:280px;margin:0 auto 14px;}
+  .ht-banner-photo-single img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px;
+    border:4px solid rgba(255,255,255,.65);box-shadow:0 10px 22px -12px rgba(0,0,0,.5);}
+  @media (max-width:600px){.ht-banner-photos{margin-bottom:12px;}}
+  .ht-media.three>*:nth-child(2){grid-column:1;grid-row:1;}
+  .ht-media.three>*:nth-child(3){grid-column:2;grid-row:1;}
+  .ht-media.three{grid-template-columns:1fr 1fr;}
+  .ht-media.four{grid-template-columns:1fr 1fr;gap:6px;}
+  .ht-media.four video,.ht-media.four img{border-radius:12px;}
+
+  /* Two-by-two grid para Bom Dia */
+  .ht-media.two-by-two{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:none;}
+  .ht-media.two-by-two>*{border-radius:12px;background:#101720;}
+  .ht-media.two-by-two video,.ht-media.two-by-two img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:12px;}
+
+  /* Jogos grid 2x2 com 4 items */
+  .ht-media.jogos-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:none;}
+  .ht-media.jogos-grid>video{border-radius:12px;background:#101720;width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+  .ht-media.jogos-grid>img{grid-column:1/-1;justify-self:center;width:calc(50% - 3px);border-radius:12px;aspect-ratio:3/4;object-fit:cover;display:block;}
+
+  /* Galeria consistente para os cards da Manhã (design profissional, uniforme) */
+  .ht-gallery{display:grid;gap:8px;border-radius:10px;overflow:hidden;margin-bottom:2px;}
+  .ht-gallery>img,.ht-gallery>video{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#101720;min-width:0;min-height:0;border-radius:10px;}
+  .ht-gallery>*{min-width:0;min-height:0;}
+  .ht-gallery-2{grid-template-columns:1fr 1fr;}
+  .ht-gallery-4{grid-template-columns:1fr 1fr;}
+  .ht-act{overflow:hidden;}
+  .ht-act-photo{padding:0;}
+  .ht-act-photo img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+
+  /* ===== Tarde: cada foto/vídeo no formato original (sem cortes), alturas alinhadas ===== */
+  .ht-strip{display:flex;gap:8px;align-items:flex-start;}
+  .ht-strip>img,.ht-strip>video{flex:var(--g) 1 0%;width:0;min-width:0;height:auto;
+    object-fit:cover;display:block;border-radius:10px;background:#101720;}
+  .ht-strip>.r916{--g:56.25;aspect-ratio:9/16;}
+  .ht-strip>.r34{--g:75;aspect-ratio:3/4;}
+  .ht-act-body{display:flex;flex-direction:column;}
+  .ht-afternoon .ht-acts{grid-template-columns:minmax(0,1fr) calc((100% - 18px) * 7 / 19 + 4.4px);
+    gap:18px;align-items:stretch;}
+  @media (max-width:980px){
+    .ht-afternoon .ht-acts{grid-template-columns:minmax(0,1fr);}
+    .ht-act-chef{flex-direction:row;align-items:center;gap:18px;}
+    .ht-act-chef .ht-strip{flex:0 0 calc(58.333% - 6px);}
+    .ht-act-chef .ht-act-body h4{margin-top:0;}
+  }
+  @media (max-width:560px){
+    .ht-act-jogos .ht-strip{flex-wrap:wrap;}
+    .ht-act-jogos .ht-strip>*{flex:0 0 calc(50% - 4px);}
+    .ht-act-chef{flex-direction:column;align-items:stretch;gap:0;}
+    .ht-act-chef .ht-strip{flex:none;}
+    .ht-act-chef .ht-act-body h4{margin-top:14px;}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="nav">
+    <div class="brand"><span class="spark">✨</span><span>Maju Correia</span></div>
+    <div class="nav-links">
+      <a href="#projetos" data-i="nav_projetos">Trabalhos</a>
+      <a href="#sobre" data-i="nav_sobre">Sobre mim</a>
+    </div>
+    <div class="nav-right">
+      <a class="icon-btn" href="tel:+351911808702" aria-label="Telefone">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a class="icon-btn" href="mailto:contatomajucorreia@gmail.com" aria-label="Email">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      </a>
+      <div class="lang-switch" role="group" aria-label="Idioma">
+        <button data-lang="pt" class="active">PT</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="home-view">
+  <section class="hero">
+    <div class="doodle" style="top:34px;left:36px;">
+      <svg width="60" height="28" viewBox="0 0 70 34" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"><path d="M3 26c6-20 12 4 18-16s12 20 18 0 12 16 18-4"/></svg>
+    </div>
+    <div class="doodle" style="bottom:60px;left:40px;">
+      <svg width="36" height="56" viewBox="0 0 46 70" fill="none" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"><path d="M40 4c0 18-34 6-34 24s34 6 34 24"/></svg>
+    </div>
+    <div class="doodle" style="top:22px;left:44%;">
+      <svg width="30" height="30" viewBox="0 0 30 30"><path d="M15 1l3.6 9.4L28 14l-9.4 3.6L15 27l-3.6-9.4L2 14l9.4-3.6z" fill="#f5a524"/></svg>
+    </div>
+    <div class="doodle" style="top:88px;left:22%;">
+      <svg width="46" height="22" viewBox="0 0 54 26" fill="none" stroke="#ec4899" stroke-width="5" stroke-linecap="round"><path d="M3 20c5-14 10 4 15-10s10 16 15 2"/></svg>
+    </div>
+    <div class="doodle" style="top:150px;left:30px;">
+      <svg width="20" height="20"><circle cx="10" cy="10" r="10" fill="#38bdf8"/></svg>
+    </div>
+    <div class="doodle" style="bottom:150px;left:22%;">
+      <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l2.8 7.2L22 10l-7.2 2.8L12 20l-2.8-7.2L2 10l7.2-2.8z" fill="#14b8a6"/></svg>
+    </div>
+    <div class="doodle" style="bottom:34px;left:48%;">
+      <svg width="54" height="26" viewBox="0 0 64 30" fill="none" stroke="#eab308" stroke-width="5" stroke-linecap="round"><path d="M3 22c8-18 16 6 24-12s16 18 24 2"/></svg>
+    </div>
+    <div class="doodle" style="bottom:100px;right:12px;">
+      <svg width="40" height="40" viewBox="0 0 50 50" fill="none" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"><path d="M25 6c11 0 19 9 19 19s-8 19-19 19c-8 0-13-5-13-11s5-10 10-10 8 3 8 7"/></svg>
+    </div>
+    <div class="doodle" style="top:64px;right:32%;">
+      <svg width="16" height="16"><circle cx="8" cy="8" r="8" fill="#ec4899"/></svg>
+    </div>
+    <div class="doodle" style="bottom:56px;left:16%;">
+      <svg width="18" height="18"><circle cx="9" cy="9" r="9" fill="#a78bfa"/></svg>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1 data-i="hero_title">Hi, i'm Maju :)</h1>
+        <p data-i="hero_text">Animadora de entretenimento apaixonada por trazer alegria para as pessoas de todas as idades, desde crianças a séniores, sempre com energia e muita alegria.</p>
+      </div>
+      <div class="hero-photo-frame">
+        <!-- swirl hugging top-left corner, near the face -->
+        <div class="doodle" style="top:-20px;left:-28px;z-index:3;">
+          <svg width="120" height="120" viewBox="0 0 150 150" fill="none">
+            <path d="M20 90C10 55 45 25 80 30c30 4 45 30 30 48-12 15-38 14-42-4-3-13 9-22 20-16" stroke="#f5a524" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- teal splash near the top, close to the face -->
+        <div class="doodle" style="top:10%;left:-38px;z-index:1;">
+          <svg width="96" height="72" viewBox="0 0 120 90" fill="none">
+            <path d="M4 60C-4 30 30 4 60 10c25 5 34 26 20 34-10 6-22-2-16-14" stroke="#14b8a6" stroke-width="13" stroke-linecap="round" opacity=".85"/>
+          </svg>
+        </div>
+        <!-- confetti clustered near the top / face area -->
+        <div class="doodle" style="top:6%;right:6%;z-index:3;">
+          <svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#eab308"/></svg>
+        </div>
+        <div class="doodle" style="top:16%;right:-12px;z-index:3;">
+          <svg width="10" height="10"><circle cx="5" cy="5" r="5" fill="#7c3aed"/></svg>
+        </div>
+        <div class="doodle" style="top:26%;right:2%;z-index:3;">
+          <svg width="16" height="16"><path d="M8 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ec4899"/></svg>
+        </div>
+        <div class="doodle" style="top:-10px;right:26px;z-index:3;">
+          <svg width="30" height="30" viewBox="0 0 30 30"><path d="M15 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#7c3aed"/></svg>
+        </div>
+        <img loading="lazy" decoding="async" src="port_000.jpg" alt="Maju Correia em traje de animação de hotel">
+      </div>
+    </div>
+  </section>
+
+  <section class="projetos" id="projetos">
+    <h2><span>🎉</span> <span data-i="proj_title">Trabalhos</span></h2>
+
+    <div class="filters">
+      <button class="pill active" data-filter="todos" data-i="f_todos">Todos</button>
+      <button class="pill" data-filter="hotel" data-i="f_hotel">Hotel</button>
+      <button class="pill" data-filter="christmas" data-i="f_christmas">Christmas Village</button>
+      <button class="pill" data-filter="infantil" data-i="f_infantil">Infantil</button>
+      <button class="pill" data-filter="maquilhagem" data-i="f_maquilhagem">Maquilhagem</button>
+    </div>
+
+    <a class="featured card" data-cat="hotel" href="#hotel">
+      <div class="featured-media">
+        <span class="badge" data-i="destaque">Destaque</span>
+        <img loading="lazy" decoding="async" src="port_001.jpg" alt="Maju Correia com um grupo de hóspedes na piscina do hotel">
+        <div class="play-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#7c3aed"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div>
+          <h3 data-i="hotel_title">Animação em hotel</h3>
+          <p data-i="hotel_text">Alongamentos, aquadance, jogos, shows e muito mais!</p>
+        </div>
+        <span class="btn-primary" data-i="btn_read">Ver trabalho completo</span>
+      </div>
+    </a>
+
+    <div class="card-grid">
+      <a class="card" data-cat="christmas" href="#christmas-village">
+        <div class="card-media"><img loading="lazy" decoding="async" src="port_002.jpg" alt="Maju Correia e colega caracterizados no Christmas Village"></div>
+        <div class="card-body">
+          <h4 data-i="c_christmas">Cascais Christmas Village</h4>
+          <span class="soon" data-i="cv_view">Ver trabalho</span>
+        </div>
+      </a>
+      <a class="card" data-cat="infantil" href="#animacao-infantil">
+        <div class="card-media"><img loading="lazy" decoding="async" src="port_003.jpg" alt="Maju Correia com um balão moldado em forma de cão"></div>
+        <div class="card-body">
+          <h4 data-i="c_infantil">Animação infantil</h4>
+          <span class="soon" data-i="ai_view">Ver trabalho</span>
+        </div>
+      </a>
+      <a class="card" data-cat="maquilhagem" href="#maquilhagem-artistica">
+        <div class="card-media"><img loading="lazy" decoding="async" src="port_004.jpg" alt="Maju Correia com maquilhagem azul com glitter"></div>
+        <div class="card-body">
+          <h4 data-i="c_maquilhagem">Maquilhagem artística</h4>
+          <span class="soon" data-i="mk_view">Ver trabalho</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <h2><span>👋</span> <span data-i="sobre_title">Sobre mim</span></h2>
+    <div class="sobre-grid">
+      <div>
+        <p data-i="sobre_text1">Sou brasileira, tenho 27 anos e trabalho com animação, eventos e atendimento ao público.</p>
+        <p data-i="sobre_text2">Sou uma pessoa extrovertida, simpática, responsável e criativa, com grande facilidade em lidar tanto com crianças como com adultos. Tenho muita energia, gosto de trabalhar com o público e de criar experiências divertidas e memoráveis.</p>
+      </div>
+      <div class="sobre-pics">
+        <figure><img loading="lazy" decoding="async" src="port_005.jpg" alt="Maju Correia caracterizada num espetáculo do hotel"></figure>
+        <figure><img loading="lazy" decoding="async" src="port_006.jpg" alt="Maju Correia ao lado da mascote do hotel"></figure>
+        <figure><img loading="lazy" decoding="async" src="port_072.jpg" alt="Maju Correia a animar junto à piscina do hotel, com um esparguete de piscina"></figure>
+        <figure><img loading="lazy" decoding="async" src="port_008.jpg" alt="Maju Correia na piscina com uma criança"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="obrigada">
+    <div class="confetti-dot" style="width:14px;height:14px;background:#fbbf24;top:22px;right:64px;"></div>
+    <div class="confetti-dot" style="width:10px;height:10px;background:#7c3aed;bottom:26px;left:72px;"></div>
+    <div class="confetti-dot" style="width:16px;height:16px;background:#14b8a6;top:42%;right:22px;"></div>
+    <div class="confetti-dot" style="width:12px;height:12px;background:#38bdf8;top:30%;left:26px;"></div>
+    <div class="confetti-dot" style="width:9px;height:9px;background:#ec4899;bottom:38%;right:70px;"></div>
+    <div class="doodle" style="top:26px;left:34px;">
+      <svg width="52" height="24" viewBox="0 0 64 30" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round"><path d="M3 22c8-18 16 6 24-12s16 18 24 2"/></svg>
+    </div>
+    <div class="doodle" style="top:64px;right:30px;">
+      <svg width="28" height="28" viewBox="0 0 30 30"><path d="M15 1l3.6 9.4L28 14l-9.4 3.6L15 27l-3.6-9.4L2 14l9.4-3.6z" fill="#ec4899"/></svg>
+    </div>
+    <div class="doodle" style="bottom:70px;left:26px;">
+      <svg width="34" height="34" viewBox="0 0 44 44" fill="none" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"><path d="M22 5c9 0 16 8 16 17s-7 17-16 17c-7 0-11-4-11-9s4-9 9-9 7 3 7 6"/></svg>
+    </div>
+    <div class="doodle" style="bottom:30px;right:40px;">
+      <svg width="46" height="22" viewBox="0 0 54 26" fill="none" stroke="#14b8a6" stroke-width="5" stroke-linecap="round"><path d="M3 20c5-14 10 4 15-10s10 16 15 2"/></svg>
+    </div>
+    <div class="doodle" style="top:44%;left:44px;">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 0l2.8 7.2L22 10l-7.2 2.8L12 20l-2.8-7.2L2 10l7.2-2.8z" fill="#eab308"/></svg>
+    </div>
+    <div class="obrigada-pics">
+      <img loading="lazy" decoding="async" src="port_009.jpg" alt="Maju Correia com uma criança no relvado">
+      <img loading="lazy" decoding="async" src="port_010.jpg" alt="Maju Correia com uma criança ao colo">
+      <img loading="lazy" decoding="async" src="port_011.jpg" alt="Maju Correia com crianças numa atividade noturna">
+    </div>
+    <h2 data-i="obrigada_title">🎉 Obrigada</h2>
+    <p data-i="obrigada_text">Criar experiências inesquecíveis é mais do que um trabalho, é o que faço com paixão. Estou pronta para fazer parte da vossa equipa e transformar cada momento vivido pelas pessoas em boas memórias.</p>
+    <div class="contact-info">
+      <a class="phone" href="tel:+351911808702">📞 +351 911 808 702</a>
+      <a class="email" href="mailto:contatomajucorreia@gmail.com">✉️ contatomajucorreia@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="domain">entreterimentmajucorreia.com</span>
+  </footer>
+</div>
+
+  <div id="cv-page" class="cv-page-wrap" hidden>
+    <div class="cv-ornaments" aria-hidden="true">
+      <span style="top:3%;left:2%;font-size:1.5rem;">❄</span>
+      <span style="top:7%;right:4%;font-size:1.1rem;">★</span>
+      <span style="top:11%;left:24%;font-size:1rem;">❄</span>
+      <span style="top:15%;right:26%;font-size:1.3rem;">⭐</span>
+      <span style="top:19%;left:47%;font-size:1rem;">❄</span>
+      <span style="top:23%;left:-1%;font-size:1.9rem;">🎄</span>
+      <span style="top:27%;right:1%;font-size:1.4rem;">❄</span>
+      <span style="top:31%;left:33%;font-size:1.1rem;">★</span>
+      <span style="top:36%;right:38%;font-size:1.6rem;">🔔</span>
+      <span style="top:40%;left:8%;font-size:1.2rem;">❄</span>
+      <span style="top:45%;right:9%;font-size:1.8rem;">🎁</span>
+      <span style="top:49%;left:55%;font-size:1rem;">★</span>
+      <span style="top:53%;left:1%;font-size:1.3rem;">❄</span>
+      <span style="top:57%;right:29%;font-size:1.5rem;">🎄</span>
+      <span style="top:62%;left:40%;font-size:1.1rem;">❄</span>
+      <span style="top:66%;right:2%;font-size:1.2rem;">★</span>
+      <span style="top:70%;left:18%;font-size:1.6rem;">🔔</span>
+      <span style="top:75%;right:44%;font-size:1rem;">❄</span>
+      <span style="top:79%;left:3%;font-size:1.4rem;">⭐</span>
+      <span style="top:83%;right:14%;font-size:1.7rem;">🎁</span>
+      <span style="top:88%;left:61%;font-size:1.1rem;">❄</span>
+      <span style="top:92%;right:5%;font-size:1.5rem;">🎄</span>
+      <span style="top:96%;left:12%;font-size:1.2rem;">★</span>
+    </div>
+    <button type="button" class="back-link" id="cv-back">&larr; <span data-i="cv_back">Voltar</span></button>
+    <div class="cv-cover">
+      <img loading="lazy" decoding="async" src="port_012.jpg" alt="Equipa do Cascais Christmas Village em foto de grupo no palco">
+    </div>
+  <section class="cv-detail" id="christmas-village">
+    <div class="cv-banner">
+      <div class="cv-banner-photo">
+        <img loading="lazy" decoding="async" src="port_013.jpg" alt="Maju Correia caracterizada no Christmas Village">
+      </div>
+      <h2><span>🎄</span> <span data-i="cv_title">Christmas Village</span></h2>
+      <ul class="cv-feature-list">
+        <li data-i="cv_f1">🎭 Animação como personagem temática</li>
+        <li data-i="cv_f2">🎫 Picagem de bilhetes</li>
+        <li data-i="cv_f3">👨‍👩‍👧‍👦 Interação com crianças e famílias</li>
+        <li data-i="cv_f4">📅 Trabalho diário, caracterizada, durante todo o mês de dezembro</li>
+      </ul>
+    </div>
+    <div class="cv-gallery">
+      <img loading="lazy" decoding="async" src="port_014.jpg" alt="Maju Correia caracterizada no Christmas Village">
+      <img loading="lazy" decoding="async" src="port_015.jpg" alt="Maju Correia caracterizada no Christmas Village, ao ar livre">
+      <img loading="lazy" decoding="async" src="port_016.jpg" alt="Maju Correia caracterizada no Christmas Village">
+      <img loading="lazy" decoding="async" src="port_017.jpg" alt="Maju Correia caracterizada, maquilhagem verde e vermelha do Christmas Village">
+      <img loading="lazy" decoding="async" src="port_018.jpg" alt="Maju Correia caracterizada no Christmas Village">
+      <img loading="lazy" decoding="async" src="port_019.jpg" alt="Maju Correia caracterizada no Christmas Village">
+    </div>
+    <div class="cv-video-wrap">
+      <h3 data-i="cv_video_title">🎥 Um pouco de energia no Christmas Village</h3>
+      <div class="cv-videos">
+      <div class="cv-video-card"><video controls playsinline loop preload="metadata" src="port_020.mp4"></video></div>
+      <div class="cv-video-card"><video controls playsinline loop preload="metadata" src="port_021.mp4"></video></div>
+    </div>
+      <div class="cv-garland" aria-hidden="true"><span>🎄</span><span>❄</span><span>🎁</span><span>⭐</span><span>🔔</span><span>❄</span><span>🎄</span></div>
+    </div>
+  </section>
+  </div>
+  <div id="ai-page" class="ai-page-wrap" hidden>
+    <div class="ai-ornaments" aria-hidden="true">
+      <span style="top:4%;left:2%;">🎨</span>
+      <span style="top:12%;right:3%;font-size:1.2rem;">⭐</span>
+      <span style="top:21%;left:31%;font-size:1rem;">✏️</span>
+      <span style="top:29%;right:28%;font-size:1.3rem;">🎈</span>
+      <span style="top:37%;left:-1%;font-size:1.7rem;">🧸</span>
+      <span style="top:45%;right:1%;font-size:1.4rem;">🌈</span>
+      <span style="top:53%;left:44%;font-size:1.1rem;">⭐</span>
+      <span style="top:60%;right:36%;font-size:1.5rem;">🎨</span>
+      <span style="top:68%;left:6%;font-size:1.3rem;">🎈</span>
+      <span style="top:76%;right:8%;font-size:1.6rem;">🦄</span>
+      <span style="top:84%;left:24%;font-size:1.2rem;">✨</span>
+      <span style="top:91%;right:14%;font-size:1.5rem;">🌈</span>
+    </div>
+
+    <button type="button" class="back-link" id="ai-back">&larr; <span data-i="ai_back">Voltar</span></button>
+
+    <div class="ai-cover">
+      <img loading="lazy" decoding="async" src="port_022.jpg" alt="Maju Correia a pintar com um grupo de crianças no relvado do hotel">
+    </div>
+
+    <section class="ai-detail" id="animacao-infantil">
+      <div class="ai-banner">
+        <h2><span>🎭</span> <span data-i="ai_title">Animação Infantil</span></h2>
+        <div class="ai-banner-photo">
+          <img loading="lazy" decoding="async" src="port_023.jpg" alt="Maju Correia com uma criança numa festa de finalistas">
+        </div>
+        <ul class="ai-feature-list">
+          <li data-i="ai_f1">🧒 Monitora infantil</li>
+          <li data-i="ai_f2">💄 Maquilhagem artística infantil</li>
+          <li data-i="ai_f3">🎨 Pintura facial em eventos</li>
+          <li data-i="ai_f4">🏖️ Jogos e atividades</li>
+        </ul>
+      </div>
+
+      <div class="ai-gallery">
+      <img loading="lazy" decoding="async" src="port_024.jpg" alt="Grupo de crianças na praia com Maju Correia">
+      <img loading="lazy" decoding="async" src="port_025.jpg" alt="Criança com maquilhagem artística amarela nos olhos">
+      <img loading="lazy" decoding="async" src="port_026.jpg" alt="Maju Correia a maquilhar uma criança">
+      <img loading="lazy" decoding="async" src="port_027.jpg" alt="Maju Correia e uma criança com maquilhagem de glitter">
+      <img loading="lazy" decoding="async" src="port_028.jpg" alt="Criança maquilhada para um espetáculo de dança">
+      <img loading="lazy" decoding="async" src="port_029.jpg" alt="Menino com pintura facial de coelho junto à piscina">
+      <img loading="lazy" decoding="async" src="port_030.jpg" alt="Menina com pintura facial de coelho e coelhinho no braço">
+      <img loading="lazy" decoding="async" src="port_031.jpg" alt="Maju Correia e uma criança fantasiadas de Toy Story">
+      <img loading="lazy" decoding="async" src="port_032.jpg" alt="Maju Correia com uma criança na zona de jogos">
+      <img loading="lazy" decoding="async" src="port_033.jpg" alt="Maju Correia ao colo com uma criança no hotel">
+      <img loading="lazy" decoding="async" src="port_034.jpg" alt="Criança a mostrar a pintura no braço">
+      <img loading="lazy" decoding="async" src="port_035.jpg" alt="Maju Correia rodeada de crianças na sala de atividades">
+      </div>
+
+      <div class="ai-video-wrap">
+        <h3 data-i="ai_video_title">🎥 Bons momentos com as crianças</h3>
+        <div class="ai-videos">
+          <div class="ai-video-card"><video controls playsinline loop preload="metadata" src="port_036.mp4"></video></div>
+          <div class="ai-video-card"><video controls playsinline loop preload="metadata" src="port_037.mp4"></video></div>
+          <div class="ai-video-card"><video controls playsinline loop preload="metadata" src="port_038.mp4"></video></div>
+        </div>
+        <div class="ai-garland" aria-hidden="true"><span>🎨</span><span>🎈</span><span>⭐</span><span>🌈</span><span>✨</span><span>🧸</span><span>🎨</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="mk-page" class="mk-page-wrap" hidden>
+    <div class="mk-ornaments" aria-hidden="true">
+      <span style="top:4%;left:2%;">✨</span>
+      <span style="top:12%;right:3%;font-size:1.1rem;">💎</span>
+      <span style="top:20%;left:33%;font-size:1rem;">✨</span>
+      <span style="top:28%;right:29%;font-size:1.3rem;">💄</span>
+      <span style="top:36%;left:-1%;font-size:1.6rem;">🎨</span>
+      <span style="top:44%;right:1%;font-size:1.2rem;">💎</span>
+      <span style="top:52%;left:46%;font-size:1rem;">✨</span>
+      <span style="top:60%;right:37%;font-size:1.4rem;">💅</span>
+      <span style="top:68%;left:6%;font-size:1.2rem;">💎</span>
+      <span style="top:76%;right:8%;font-size:1.5rem;">✨</span>
+      <span style="top:84%;left:26%;font-size:1.1rem;">💄</span>
+      <span style="top:92%;right:15%;font-size:1.4rem;">🎨</span>
+    </div>
+
+    <button type="button" class="back-link" id="mk-back">&larr; <span data-i="mk_back">Voltar</span></button>
+
+    <div class="mk-cover" id="maquilhagem-artistica">
+      <img loading="lazy" decoding="async" src="port_058.jpg" alt="Maju Correia com uma amiga, maquilhagem artística com glitter num evento">
+    </div>
+
+    <section class="mk-intro">
+      <h2><span>🎨</span> <span data-i="mk_title">Maquilhagem artística em eventos</span></h2>
+      <p data-i="mk_sub">Experiência em eventos e festivais com pintura facial e maquilhagem artística.</p>
+      <div class="mk-canva">
+        <a href="https://portefóliomaju.my.canva.site/makeup" id="mk-canva-link" target="_blank" rel="noopener" data-i="mk_canva">🔗 Ver portfólio completo</a>
+      </div>
+    </section>
+
+    <section class="mk-bio">
+      <div class="mk-bio-text">
+        <p data-i="mk_bio1">Trabalho com maquilhagem artística, glitter e pedras preciosas desde 2017. Ao longo destes anos fui aperfeiçoando as técnicas em festivais, festas e eventos de todo o tipo.</p>
+        <p data-i="mk_bio2">Faço desde pintura facial simples a maquilhagens completas com glitter e aplicação de pedras, sempre adaptadas ao evento e a quem se senta na cadeira.</p>
+      </div>
+      <div class="mk-bio-pics">
+        <img loading="lazy" decoding="async" class="p-a" src="port_040.jpg" alt="Maju Correia com maquilhagem verde e amarela com glitter">
+        <img loading="lazy" decoding="async" class="p-tall" src="port_041.jpg" alt="Maju Correia com maquilhagem artística azul">
+        <img loading="lazy" decoding="async" class="p-c" src="port_042.jpg" alt="Paleta de tintas, glitter e pedras">
+      </div>
+    </section>
+
+    <h3 class="mk-h" data-i="mk_fest_title">Festivais e eventos</h3>
+    <p class="mk-sub" data-i="mk_fest_sub">Alguns dos sítios por onde passei.</p>
+    <div class="mk-fests">
+        <div class="mk-fest"><video controls playsinline preload="metadata" src="port_055.mp4" aria-label="Tropicadélia 2023"></video><b>Tropicadélia 2023</b></div>
+        <div class="mk-fest"><video controls playsinline preload="metadata" src="port_056.mp4" aria-label="Vários festivais"></video><b>Vários festivais</b></div>
+        <div class="mk-fest"><video controls playsinline preload="metadata" src="port_057.mp4" aria-label="Odonto Farma 2022"></video><b>Odonto Farma 2022</b></div>
+    </div>
+
+    <h3 class="mk-h" data-i="mk_gallery_title">Trabalhos</h3>
+    <p class="mk-sub" data-i="mk_gallery_sub">Maquilhagens feitas em festivais, festas e eventos.</p>
+    <div class="mk-gallery">
+        <img loading="lazy" decoding="async" src="port_063.jpg" alt="Cliente com pedras aplicadas no rosto">
+        <img loading="lazy" decoding="async" src="port_064.jpg" alt="Maquilhagem azul com glitter">
+        <img loading="lazy" decoding="async" src="port_045.jpg" alt="Glitter aplicado no rosto e no peito">
+        <img loading="lazy" decoding="async" src="port_046.jpg" alt="Maju Correia com maquilhagem verde neon e glitter">
+        <img loading="lazy" decoding="async" src="port_065.jpg" alt="Glitter aplicado no decote">
+        <img loading="lazy" decoding="async" src="port_066.jpg" alt="Cliente com glitter cor-de-rosa num festival">
+        <img loading="lazy" decoding="async" src="port_067.jpg" alt="Cliente com glitter aplicado num evento noturno">
+        <img loading="lazy" decoding="async" src="port_050.jpg" alt="Maju Correia a maquilhar uma cliente">
+        <img loading="lazy" decoding="async" src="port_051.jpg" alt="Maju Correia a aplicar glitter numa festa">
+        <img loading="lazy" decoding="async" src="port_052.jpg" alt="Maju Correia a trabalhar num evento">
+        <img loading="lazy" decoding="async" src="port_053.jpg" alt="Maju Correia a maquilhar um cliente em palco">
+        <img loading="lazy" decoding="async" src="port_054.jpg" alt="Maju Correia com maquilhagem rosa com glitter e pedras">
+        <img loading="lazy" decoding="async" src="port_068.jpg" alt="Maquilhagem de olhos dourada com brilhos">
+        <img loading="lazy" decoding="async" src="port_069.jpg" alt="Cliente com glitter no rosto numa festa noturna">
+        <img loading="lazy" decoding="async" src="port_070.jpg" alt="Maquilhagem com glitter azul e pedras no rosto">
+        <img loading="lazy" decoding="async" src="port_071.jpg" alt="Aplicação de glitter numa cliente durante um evento">
+    </div>
+
+    <div class="mk-garland" aria-hidden="true"><span>✨</span><span>💎</span><span>💄</span><span>🎨</span><span>💎</span><span>✨</span></div>
+  </div>
+
+  <div id="hotel-page" class="hotel-page-wrap" hidden>
+    <button type="button" class="back-link" id="hotel-back">&larr; <span data-i="hotel_back">Voltar</span></button>
+
+  <div class="ht-hero">
+    <div class="ht-cover-img"><img loading="lazy" decoding="async" src="hotel_000.jpg" alt="Equipa de animação do Vila Galé Vilamoura com hóspedes na piscina"></div>
+    <section class="ht-banner">
+    <div class="ht-banner-photo-single">
+      <img loading="lazy" decoding="async" src="hotel_001.jpg" alt="Maju Correia a dançar com figurino festivo">
+    </div>
+    <h2>🏨 Animação em hotel</h2>
+    <div class="ht-chips"><span>Animadora</span><span>Vila Galé Vilamoura, Algarve</span><span>2026</span></div>
+    <p>Uma temporada a animar hóspedes de todas as idades, do pequeno-almoço ao último show da noite.</p>
+  </section>
+  </div>
+
+  <section class="ht-period ht-morning">
+    <h3>☀️ Manhã</h3>
+    <p>Energia logo cedo, dentro e fora do hotel.</p>
+    <div class="ht-acts">
+      <div class="ht-act">
+        <div class="ht-gallery ht-gallery-4">
+          <video controls playsinline preload="metadata" src="hotel_002.mp4" aria-label="Maju Correia com a mascote sereia no hotel"></video>
+          <img loading="lazy" decoding="async" src="hotel_003.jpg" alt="Crianças com as mascotes ao pequeno-almoço">
+          <video controls playsinline preload="metadata" src="hotel_004.mp4" aria-label="Maju Correia e a equipa animando ao pequeno-almoço"></video>
+          <img loading="lazy" decoding="async" src="hotel_005.jpg" alt="Crianças com as mascotes à noite" style="object-position:78% center;">
+        </div>
+        <h4>🐻 Bom dia com a mascote</h4>
+        <p>Recebia os hóspedes vestida de mascote, ao pequeno-almoço.</p>
+      </div>
+      <div class="ht-act">
+        <div class="ht-gallery ht-gallery-4">
+          <img loading="lazy" decoding="async" src="hotel_006.jpg" alt="Maju Correia a orientar os alongamentos no relvado">
+          <img loading="lazy" decoding="async" src="hotel_007.jpg" alt="Grupo de hóspedes a fazer alongamentos no jardim do hotel">
+          <img loading="lazy" decoding="async" src="hotel_008.jpg" alt="Maju Correia a orientar alongamentos com crianças no bar do hotel">
+          <video controls playsinline preload="metadata" src="hotel_009.mp4" aria-label="Alongamentos no relvado junto à piscina"></video>
+        </div>
+        <h4>🤸 Alongamentos</h4>
+        <p>Começar o dia a mexer, com hóspedes de todas as idades.</p>
+      </div>
+      <div class="ht-act">
+        <div class="ht-gallery ht-gallery-4">
+          <video controls playsinline preload="metadata" src="hotel_013.mp4" aria-label="Aquadance na piscina do hotel"></video>
+          <video controls playsinline preload="metadata" src="hotel_010.mp4" aria-label="Aquadance na piscina do hotel"></video>
+          <video controls playsinline preload="metadata" src="hotel_011.mp4" aria-label="Animação na piscina do hotel"></video>
+          <video controls playsinline preload="metadata" src="hotel_012.mp4" aria-label="Crianças no aquadance"></video>
+        </div>
+        <h4>💦 Aquadance</h4>
+        <p>Coreografias na piscina, com música e muita animação.</p>
+      </div>
+      <div class="ht-act">
+        <div class="ht-gallery ht-gallery-2">
+          <img loading="lazy" decoding="async" src="hotel_014.jpg" alt="Maju Correia com hóspedes junto à estátua do pescador, no passeio à beira-mar">
+          <img loading="lazy" decoding="async" src="hotel_015.jpg" alt="Maju Correia e a equipa de animação com hóspedes à entrada do Vila Galé Vilamoura">
+        </div>
+        <h4>🗺️ Passeio pela cidade</h4>
+        <span class="ht-freq">2x por semana</span>
+        <p>Acompanhava os hóspedes a descobrir a cidade.</p>
+      </div>
+      <div class="ht-act">
+        <div class="ht-gallery ht-gallery-2">
+          <video controls playsinline preload="metadata" src="hotel_016.mp4" aria-label="Maju Correia com hóspedes na praia"></video>
+          <img loading="lazy" decoding="async" src="hotel_017.jpg" alt="Equipa de animação com as crianças na praia">
+        </div>
+        <h4>🏖️ Dia de praia</h4>
+        <span class="ht-freq">1x por semana</span>
+        <p>Levávamos as crianças para uma manhã na praia.</p>
+      </div>
+      <div class="ht-act ht-act-photo">
+        <img loading="lazy" decoding="async" src="hotel_036.jpg" alt="Equipa de animação caracterizada, com boné de capitã e boné de polícia, junto a lápis de cor para atividades com os hóspedes">
+      </div>
+    </div>
+  </section>
+
+  <section class="ht-period ht-afternoon">
+    <h3>🌊 Tarde</h3>
+    <p>Jogos e desafios para miúdos e graúdos.</p>
+    <div class="ht-acts">
+      <div class="ht-act ht-act-jogos">
+        <div class="ht-strip">
+          <video class="r916" controls playsinline preload="metadata" src="hotel_037.mp4" aria-label="Jogos de grupo no relvado do hotel"></video>
+          <video class="r916" controls playsinline preload="metadata" src="hotel_019.mp4" aria-label="Jogos junto à piscina do hotel"></video>
+          <video class="r916" controls playsinline preload="metadata" src="hotel_020.mp4" aria-label="Dança com hóspedes junto à piscina"></video>
+          <img loading="lazy" decoding="async" class="r916" src="hotel_021.jpg" alt="Maju Correia a jogar xadrez com um hóspede">
+        </div>
+        <div class="ht-act-body">
+          <h4>🎯 Jogos</h4>
+          <span class="ht-freq">Todos os dias</span>
+          <p>Jogos de grupo junto à piscina e no hotel, todas as tardes. Os principais jogos são dardos, arco e flecha, sjoelbak, entre outros diversos jogos infantis.</p>
+        </div>
+      </div>
+      <div class="ht-act ht-act-chef">
+        <div class="ht-strip">
+          <img loading="lazy" decoding="async" class="r34" src="hotel_022.jpg" alt="Maju Correia com as crianças à mesa das pizzas">
+          <video class="r916" controls playsinline preload="metadata" src="hotel_038.mp4" aria-label="Mini Chef com as crianças na cozinha"></video>
+        </div>
+        <div class="ht-act-body">
+          <h4>👩‍🍳 Mini Chef</h4>
+          <span class="ht-freq">1x por semana</span>
+          <p>O nosso MasterChef Kids, com as crianças na cozinha.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ht-period ht-night">
+    <h3>🌙 Noite</h3>
+    <p>Quatro shows por semana, com a equipa de animação em palco.</p>
+    <div class="ht-shows">
+      <div class="ht-show"><div class="ht-media"><video controls playsinline preload="metadata" src="hotel_041.mp4" aria-label="Show Brasileiro - ritmos do Brasil em palco"></video></div>
+<div class="ht-day">Segunda</div><h4>🇧🇷 Show Brasileiro</h4><p>Ritmos do Brasil em palco.</p></div>
+      <div class="ht-show"><div class="ht-media"><video controls playsinline preload="metadata" src="hotel_024.mp4" aria-label="Ritmos e Brilhos - show de música pop"></video></div>
+<div class="ht-day">Quarta</div><h4>✨ Ritmos e Brilhos</h4><p>Um show de música pop.</p></div>
+      <div class="ht-show"><div class="ht-media"><video controls playsinline preload="metadata" src="hotel_025.mp4" aria-label="Show Infantil com as crianças e a equipa de animação"></video></div>
+<div class="ht-day">Quinta</div><h4>🎈 Show Infantil</h4><p>Pensado para as crianças.</p></div>
+      <div class="ht-show"><div class="ht-media"><video controls playsinline preload="metadata" src="hotel_042.mp4" aria-label="Dança folclórica no Show Português"></video></div>
+<div class="ht-day">Sexta</div><h4>🇵🇹 Show Português</h4><p>Música e tradição portuguesa.</p></div>
+    </div>
+    <div class="ht-night-extra">
+      <div class="ht-note"><strong>💃 Depois do show</strong>No fim de cada show, chamávamos o público para dançar connosco.<div class="ht-note-media"><video controls playsinline preload="metadata" src="hotel_039.mp4" aria-label="Crianças a dançar em roda com a equipa de animação à noite"></video><video controls playsinline preload="metadata" src="hotel_028.mp4" aria-label="Hóspedes a dançar com a equipa depois do show"></video></div></div>
+      <div class="ht-note"><strong>🎶 Terça e sábado</strong>Noites livres com quiz musical ou jogos.<div class="ht-note-media"><video controls playsinline preload="metadata" src="hotel_029.mp4" aria-label="Hóspedes a jogar numa noite de jogos"></video><video controls playsinline preload="metadata" src="hotel_030.mp4" aria-label="Dança com hóspedes numa noite livre"></video></div></div>
+    </div>
+  </section>
+
+  <div class="ht-video-wrap">
+    <h3>🎥 Momentos no hotel</h3>
+    <div class="ht-videos">
+      <video controls playsinline preload="metadata" src="hotel_031.mp4" aria-label="Maju Correia a dançar com o figurino de lantejoulas"></video>
+      <video controls playsinline preload="metadata" src="hotel_040.mp4" aria-label="Hóspedes a dançar no salão do hotel"></video>
+      <video controls playsinline preload="metadata" src="hotel_033.mp4" aria-label="Show em palco com bandeiras"></video>
+      <video controls playsinline preload="metadata" src="hotel_034.mp4" aria-label="Crianças a dançar numa festa com bandeiras"></video>
+      <video controls playsinline preload="metadata" src="hotel_027.mp4" aria-label="Show Brasileiro - ritmos do Brasil em palco"></video>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+<script>
+  const i18n = {
+    pt:{
+      nav_projetos:"Trabalhos", nav_sobre:"Sobre mim",
+      hero_title:"Hi, i'm Maju :)",
+      hero_text:"Animadora de entretenimento apaixonada por trazer alegria para as pessoas de todas as idades, desde crianças a séniores, sempre com energia e muita alegria.",
+      proj_title:"Trabalhos",
+      f_todos:"Todos", f_hotel:"Hotel", f_christmas:"Christmas Village", f_infantil:"Infantil", f_maquilhagem:"Maquilhagem",
+      destaque:"Destaque",
+      hotel_title:"Animação em hotel",
+      hotel_text:"Alongamentos, aquadance, jogos, shows e muito mais!",
+      btn_read:"Ver trabalho completo",
+      c_christmas:"Cascais Christmas Village", c_infantil:"Animação infantil", c_maquilhagem:"Maquilhagem artística",
+      soon:"Em breve",
+      cv_view:"Ver trabalho",
+      cv_title:"Christmas Village",
+      cv_f1:"🎭 Animação como personagem temática",
+      cv_f2:"🎫 Picagem de bilhetes",
+      cv_f3:"👨‍👩‍👧‍👦 Interação com crianças e famílias",
+      cv_f4:"📅 Trabalho diário, caracterizada, durante todo o mês de dezembro",
+      cv_video_title:"🎥 Um pouco de energia no Christmas Village",
+      cv_back:"Voltar",
+      ai_view:"Ver trabalho",
+      ai_back:"Voltar",
+      ai_title:"Animação Infantil",
+      ai_f1:"🧒 Monitora infantil",
+      ai_f2:"💄 Maquilhagem artística infantil",
+      ai_f3:"🎨 Pintura facial em eventos",
+      ai_f4:"🏖️ Jogos e atividades",
+      ai_video_title:"🎥 Bons momentos com as crianças",
+      sobre_title:"Sobre mim",
+      sobre_text1:"Sou brasileira, tenho 27 anos e trabalho com animação, eventos e atendimento ao público.",
+      sobre_text2:"Sou uma pessoa extrovertida, simpática, responsável e criativa, com grande facilidade em lidar tanto com crianças como com adultos. Tenho muita energia, gosto de trabalhar com o público e de criar experiências divertidas e memoráveis.",
+      obrigada_title:"🎉 Obrigada",
+      obrigada_text:"Criar experiências inesquecíveis é mais do que um trabalho, é o que faço com paixão. Estou pronta para fazer parte da vossa equipa e transformar cada momento vivido pelas pessoas em boas memórias.",
+      mk_view:"Ver trabalho",
+      mk_back:"Voltar",
+      hotel_back:"Voltar",
+      mk_title:"Maquilhagem artística em eventos",
+      mk_sub:"Experiência em eventos e festivais com pintura facial e maquilhagem artística.",
+      mk_canva:"🔗 Ver portfólio completo",
+      mk_bio1:"Trabalho com maquilhagem artística, glitter e pedras preciosas desde 2017. Ao longo destes anos fui aperfeiçoando as técnicas em festivais, festas e eventos de todo o tipo.",
+      mk_bio2:"Faço desde pintura facial simples a maquilhagens completas com glitter e aplicação de pedras, sempre adaptadas ao evento e a quem se senta na cadeira.",
+      mk_fest_title:"Festivais e eventos",
+      mk_fest_sub:"Alguns dos sítios por onde passei.",
+      mk_fest_note:"Vídeos a caminho.",
+      mk_gallery_title:"Trabalhos",
+      mk_gallery_sub:"Maquilhagens feitas em festivais, festas e eventos.",
+    },
+    en:{
+      nav_projetos:"Work", nav_sobre:"About me",
+      hero_title:"Hi, i'm Maju :)",
+      hero_text:"Entertainment animator passionate about bringing joy to people of all ages, from kids to seniors, always with energy and lots of fun.",
+      proj_title:"Work",
+      f_todos:"All", f_hotel:"Hotel", f_christmas:"Christmas Village", f_infantil:"Kids", f_maquilhagem:"Makeup",
+      destaque:"Featured",
+      hotel_title:"Hotel entertainment",
+      hotel_text:"Stretching, aquadance, games, shows and much more!",
+      btn_read:"See full work",
+      c_christmas:"Cascais Christmas Village", c_infantil:"Kids entertainment", c_maquilhagem:"Artistic makeup",
+      soon:"Coming soon",
+      cv_view:"View work",
+      cv_title:"Christmas Village",
+      cv_f1:"🎭 Themed character animation",
+      cv_f2:"🎫 Ticket scanning",
+      cv_f3:"👨‍👩‍👧‍👦 Interaction with children and families",
+      cv_f4:"📅 Daily work, in costume, throughout December",
+      cv_video_title:"🎥 A bit of Christmas Village energy",
+      cv_back:"Back",
+      ai_view:"View work",
+      ai_back:"Back",
+      ai_title:"Kids Entertainment",
+      ai_f1:"🧒 Children's activity leader",
+      ai_f2:"💄 Artistic makeup for children",
+      ai_f3:"🎨 Face painting at events",
+      ai_f4:"🏖️ Games and activities",
+      ai_video_title:"🎥 Good times with the children",
+      sobre_title:"About me",
+      sobre_text1:"I'm Brazilian, I'm 27 years old and I work in animation, events and customer service.",
+      sobre_text2:"I'm an outgoing, friendly, responsible and creative person, with great ease dealing with both children and adults. I have lots of energy, I love working with the public and creating fun, memorable experiences.",
+      obrigada_title:"🎉 Thank you",
+      obrigada_text:"Creating unforgettable experiences is more than a job, it's what I do with passion. I'm ready to become part of your team and turn every moment people experience into good memories.",
+      mk_view:"View work",
+      mk_back:"Back",
+      hotel_back:"Back",
+      mk_title:"Artistic makeup at events",
+      mk_sub:"Experience at events and festivals with face painting and artistic makeup.",
+      mk_canva:"🔗 See the full portfolio",
+      mk_bio1:"I have worked with artistic makeup, glitter and gems since 2017. Over these years I've refined my techniques at festivals, parties and events of all kinds.",
+      mk_bio2:"From simple face painting to full looks with glitter and applied gems, always adapted to the event and to whoever sits in the chair.",
+      mk_fest_title:"Festivals and events",
+      mk_fest_sub:"Some of the places I've worked.",
+      mk_fest_note:"Videos coming soon.",
+      mk_gallery_title:"Work",
+      mk_gallery_sub:"Makeup done at festivals, parties and events.",
+    },
+    es:{
+      nav_projetos:"Trabajos", nav_sobre:"Sobre mí",
+      hero_title:"Hi, i'm Maju :)",
+      hero_text:"Animadora de entretenimiento apasionada por llevar alegría a personas de todas las edades, desde niños hasta mayores, siempre con energía y mucha diversión.",
+      proj_title:"Trabajos",
+      f_todos:"Todos", f_hotel:"Hotel", f_christmas:"Christmas Village", f_infantil:"Infantil", f_maquilhagem:"Maquillaje",
+      destaque:"Destacado",
+      hotel_title:"Animación en hotel",
+      hotel_text:"¡Estiramientos, aquadance, juegos, shows y mucho más!",
+      btn_read:"Ver trabajo completo",
+      c_christmas:"Cascais Christmas Village", c_infantil:"Animación infantil", c_maquilhagem:"Maquillaje artístico",
+      soon:"Próximamente",
+      cv_view:"Ver trabajo",
+      cv_title:"Christmas Village",
+      cv_f1:"🎭 Animación como personaje temático",
+      cv_f2:"🎫 Control de entradas",
+      cv_f3:"👨‍👩‍👧‍👦 Interacción con niños y familias",
+      cv_f4:"📅 Trabajo diario, caracterizada, durante todo el mes de diciembre",
+      cv_video_title:"🎥 Un poco de energía en el Christmas Village",
+      cv_back:"Volver",
+      ai_view:"Ver trabajo",
+      ai_back:"Volver",
+      ai_title:"Animación Infantil",
+      ai_f1:"🧒 Monitora infantil",
+      ai_f2:"💄 Maquillaje artístico infantil",
+      ai_f3:"🎨 Pintura facial en eventos",
+      ai_f4:"🏖️ Juegos y actividades",
+      ai_video_title:"🎥 Buenos momentos con los niños",
+      sobre_title:"Sobre mí",
+      sobre_text1:"Soy brasileña, tengo 27 años y trabajo en animación, eventos y atención al público.",
+      sobre_text2:"Soy una persona extrovertida, simpática, responsable y creativa, con gran facilidad para tratar tanto con niños como con adultos. Tengo mucha energía, me encanta trabajar de cara al público y crear experiencias divertidas y memorables.",
+      obrigada_title:"🎉 Gracias",
+      obrigada_text:"Crear experiencias inolvidables es más que un trabajo, es lo que hago con pasión. Estoy lista para formar parte de vuestro equipo y transformar cada momento vivido por las personas en buenos recuerdos.",
+      mk_view:"Ver trabajo",
+      mk_back:"Volver",
+      hotel_back:"Volver",
+      mk_title:"Maquillaje artístico en eventos",
+      mk_sub:"Experiencia en eventos y festivales con pintura facial y maquillaje artístico.",
+      mk_canva:"🔗 Ver portafolio completo",
+      mk_bio1:"Trabajo con maquillaje artístico, glitter y piedras preciosas desde 2017. A lo largo de estos años he perfeccionado mis técnicas en festivales, fiestas y eventos de todo tipo.",
+      mk_bio2:"Hago desde pintura facial sencilla hasta maquillajes completos con glitter y aplicación de piedras, siempre adaptados al evento y a quien se sienta en la silla.",
+      mk_fest_title:"Festivales y eventos",
+      mk_fest_sub:"Algunos de los lugares por donde he pasado.",
+      mk_fest_note:"Vídeos en camino.",
+      mk_gallery_title:"Trabajos",
+      mk_gallery_sub:"Maquillajes hechos en festivales, fiestas y eventos.",
+    }
+  };
+
+  const langCodes = { pt:"pt-PT", en:"en-GB", es:"es-ES" };
+
+  function setLang(lang){
+    document.querySelectorAll('[data-i]').forEach(el=>{
+      const key = el.getAttribute('data-i');
+      if(i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach(b=>{
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    document.documentElement.lang = langCodes[lang] || lang;
+  }
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    b.addEventListener('click', ()=> setLang(b.dataset.lang));
+  });
+
+  document.querySelectorAll('.filters .pill').forEach(pill=>{
+    pill.addEventListener('click', ()=>{
+      document.querySelectorAll('.filters .pill').forEach(p=>p.classList.remove('active'));
+      pill.classList.add('active');
+      const f = pill.dataset.filter;
+      document.querySelectorAll('.card').forEach(card=>{
+        const cat = card.dataset.cat;
+        card.hidden = !(f === 'todos' || f === cat);
+      });
+    });
+  });
+
+  // Navegação entre a página principal e as páginas de projeto
+  const homeView = document.getElementById('home-view');
+  const pages = {
+    cv: document.getElementById('cv-page'),
+    ai: document.getElementById('ai-page'),
+    mk: document.getElementById('mk-page'),
+    hotel: document.getElementById('hotel-page')
+  };
+
+  function showPage(page){
+    const onProject = page !== 'home';
+    homeView.hidden = onProject;
+    Object.keys(pages).forEach(k=>{ pages[k].hidden = (k !== page); });
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  const routes = { '#christmas-village':'cv', '#animacao-infantil':'ai', '#maquilhagem-artistica':'mk', '#hotel':'hotel' };
+
+  Object.keys(routes).forEach(href=>{
+    document.querySelectorAll('a[href="'+href+'"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        showPage(routes[href]);
+      });
+    });
+  });
+
+  document.getElementById('cv-back').addEventListener('click', e=>{
+    e.preventDefault();
+    showPage('home');
+  });
+  document.getElementById('ai-back').addEventListener('click', e=>{
+    e.preventDefault();
+    showPage('home');
+  });
+  document.getElementById('mk-back').addEventListener('click', e=>{
+    e.preventDefault();
+    showPage('home');
+  });
+  document.getElementById('hotel-back').addEventListener('click', e=>{
+    e.preventDefault();
+    showPage('home');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href && href.startsWith('#') && !routes[href]){
+        e.preventDefault();
+        const wasOnProject = homeView.hidden;
+        showPage('home');
+        const target = document.querySelector(href);
+        if(target){
+          if(wasOnProject){
+            setTimeout(()=> target.scrollIntoView({behavior:'smooth'}), 30);
+          } else {
+            target.scrollIntoView({behavior:'smooth'});
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
