@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
 <title>Maju Correia — Animação &amp; Entretenimento</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,27 +34,8 @@
     --radius-md: 18px;
     --radius-sm: 12px;
   }
-  :root:not([data-theme="light"]){
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --pink-bg: #241522;
-      --pink-bg-soft: #1b1220;
-      --white: #2a1a2c;
-      --ink: #f6ecf5;
-      --ink-soft: #cbb8d1;
-      --card-line: #3c2740;
-    }
-  }
-  :root[data-theme="dark"]{
-    --pink-bg: #241522;
-    --pink-bg-soft: #1b1220;
-    --white: #2a1a2c;
-    --ink: #f6ecf5;
-    --ink-soft: #cbb8d1;
-    --card-line: #3c2740;
-  }
+  /* Sempre o tema claro (rosa), também em celulares com modo escuro ligado */
+  :root{color-scheme: only light;}
 
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -1295,7 +1277,7 @@
         <p>Levávamos as crianças para uma manhã na praia.</p>
       </div>
       <div class="ht-act ht-act-photo">
-        <img loading="lazy" decoding="async" src="hotel_036.jpg" alt="Equipa de animação caracterizada, com boné de capitã e boné de polícia, junto a lápis de cor para atividades com os hóspedes">
+        <img loading="lazy" decoding="async" src="hotel_036b.jpg" alt="Equipa de animação caracterizada, com boné de capitã e boné de polícia, junto a lápis de cor para atividades com os hóspedes">
       </div>
     </div>
   </section>
